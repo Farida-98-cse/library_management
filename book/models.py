@@ -24,6 +24,7 @@ class Category(models.Model):
     name = models.CharField(max_length=20, blank=True, null=True)
     limit = models.IntegerField(default=5)
     cost_per_day = models.FloatField(default=10.0)
+    books = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='books', null=True)
 
     def __str__(self):
         return self.name
