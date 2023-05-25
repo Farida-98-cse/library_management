@@ -1,7 +1,16 @@
+from django.contrib.auth.base_user import AbstractBaseUser
 from django.db import models
+from django.contrib.auth.models import AbstractUser, User
+from enum import Enum
 
 
-# Create your models here.
+class Role(str, Enum):
+    staff = 'Staff'
+    member = 'Member'
+
+    @classmethod
+    def choices(cls):
+        return tuple((i.name, i.value) for i in cls)
 
 
 class Book(models.Model):
@@ -33,3 +42,11 @@ class Category(models.Model):
         indexes = [
             models.Index(fields=["name"])
         ]
+
+
+class CustomUser(AbstractBaseUser):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    national_id = models.CharField(max_length=20, blank=True, default="")
+
+    def __str__(self):
+        return self.national_id
