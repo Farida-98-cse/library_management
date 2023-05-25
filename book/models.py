@@ -54,9 +54,18 @@ class Category(models.Model):
         ]
 
 
+class Account(models.Model):
+    inventory = models.FloatField(default=20.0)
+
+
 class CustomUser(AbstractBaseUser):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     national_id = models.CharField(max_length=20, blank=True, default="")
+    account = models.OneToOneField(
+        Account,
+        on_delete=models.CASCADE,
+        null=True
+    )
     role = models.CharField(max_length=10, choices=[(tag, tag.value) for tag in Role], default=Role.member)
 
     def __str__(self):
