@@ -16,9 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+
+from book import views
 from book.urls import urlpatterns as book_url
+from ninja import NinjaAPI
+from book.views import router as book_router
+
+api = NinjaAPI()
+api.add_router('/books/', book_router)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(book_url))
+    path('api/', api.urls),
 ]

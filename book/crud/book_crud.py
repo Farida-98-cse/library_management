@@ -13,8 +13,15 @@ class BookCRUD:
             return book
         except ObjectDoesNotExist:
             return None
-    
+
     @staticmethod
     def get_multi():
-        books = Book.objects.all()
-        return books
+        try:
+            books = Book.objects.all()
+            return books
+        except ObjectDoesNotExist:
+            return None
+
+    @staticmethod
+    def create():
+        new_book = Book.objects.create()
