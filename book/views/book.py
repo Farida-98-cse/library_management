@@ -5,17 +5,17 @@ from django.shortcuts import render, get_object_or_404
 from book.crud import BookCRUD
 from book.models import Book
 from book.schema.book import BookSchema, BookOut, BookIn, BookUpdateSellInventory
-from book.services import (
-    book_service
-)
+# from book.services import (
+#     book_service
+# )
 
 
-def retrieve_book(request):
-    books = book_service.retrieve_book()
-    context = {
-        "books": books
-    }
-    return render(request, 'books.html', context=context)
+# def retrieve_book(request):
+#     books = book_service.retrieve_book()
+#     context = {
+#         "books": books
+#     }
+#     return render(request, 'books.html', context=context)
 
 
 router = Router()
@@ -34,7 +34,7 @@ def create_book(request, payload: BookIn
         raise e
 
 
-@router.put('/update/{book_id}')
+@router.put('/update-sell-inventory/{book_id}')
 def update_book(request, book_id: int, payload: BookUpdateSellInventory):
     book = get_object_or_404(Book, id=book_id)
     for attr, value in payload.dict().items():
