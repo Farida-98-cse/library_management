@@ -2,7 +2,7 @@ from ninja import Router
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 
-from book.crud import BookCRUD
+from book.crud import book_crud
 from book.models import Book
 from book.schema.book import BookSchema, BookOut, BookIn, BookUpdateSellInventory
 # from book.services import (
@@ -26,7 +26,7 @@ def create_book(request, payload: BookIn
                 ):
     try:
         data = payload.dict()
-        book = BookCRUD.create(data)
+        book = book_crud.create(data)
         return JsonResponse({
             'book': data
         })

@@ -12,7 +12,7 @@ class Book:
         if category:
             return category.limit
 
-
-
-
-
+    @staticmethod
+    def check_hold_days_count(self, book_id):
+        n = self.check_book_hold_inventory(book_id)  # inventory of the book
+        

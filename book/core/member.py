@@ -10,3 +10,4 @@ class Member:
     def check_account_inventory(self, user_id):
         account = account_crud.get_by_user_id(user_id)
         return account
+    

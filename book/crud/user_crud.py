@@ -25,3 +25,6 @@ class CustomUserCRUD:
     def create(data):
         new_user = CustomUser.objects.create(**data)
         return new_user
+
+
+custom_user_crud = CustomUserCRUD()
