@@ -22,10 +22,12 @@ from book.urls import urlpatterns as book_url
 from ninja import NinjaAPI
 from book.views import router as book_router
 from book.views.category import router as category_router
+from book.views.user import router as user_router
 
 api = NinjaAPI()
 api.add_router('/books/', book_router)
 api.add_router('/category/', category_router)
+api.add_router('/user/', user_router)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
