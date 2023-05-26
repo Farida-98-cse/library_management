@@ -20,3 +20,5 @@ def create_user(request, payload: CustomUserIn
         })
     except Exception as e:
         raise e
+
+
