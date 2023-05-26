@@ -24,3 +24,7 @@ class BookOut(Schema):
     borrow_inventory: Optional[int]
     sell_inventory: Optional[int]
     sell_price: Optional[int]
+
+
+class BookUpdateSellInventory(Schema):
+    sell_inventory: int
