@@ -10,8 +10,8 @@ router = Router()
 
 
 @router.post('/create', response=CustomUserOut)
-def create_category(request, payload: CustomUserIn
-                    ):
+def create_user(request, payload: CustomUserIn
+                ):
     try:
         data = payload.dict()
         user = CustomUserCRUD.create(data)
