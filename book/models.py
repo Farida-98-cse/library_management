@@ -71,6 +71,11 @@ class Account(models.Model):
         null=True
     )
 
+    class Meta:
+        indexes = [
+            models.Index(fields=["user_id"])
+        ]
+
 
 class Order(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)

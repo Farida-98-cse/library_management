@@ -25,3 +25,10 @@ class CategoryCRUD:
     def create(data):
         new_category = Category.objects.create(**data)
         return new_category
+
+    @staticmethod
+    def get_by_book_id(book_id):
+        category = Category.objects.filter(book_id=book_id).values()
+
+
+category_crud = CategoryCRUD()

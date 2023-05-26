@@ -25,3 +25,6 @@ class BookCRUD:
     @staticmethod
     def create(data):
         new_book = Book.objects.create(**data)
+
+
+book_crud = BookCRUD()
