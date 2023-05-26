@@ -23,5 +23,5 @@ class BookCRUD:
             return None
 
     @staticmethod
-    def create():
-        new_book = Book.objects.create()
+    def create(data):
+        new_book = Book.objects.create(**data)

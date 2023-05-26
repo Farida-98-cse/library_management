@@ -16,3 +16,11 @@ class BookIn(Schema):
     borrow_inventory: Optional[int]
     sell_inventory: Optional[int]
     sell_price: Optional[int]
+
+
+class BookOut(Schema):
+    name: str
+    author: str
+    borrow_inventory: Optional[int]
+    sell_inventory: Optional[int]
+    sell_price: Optional[int]
