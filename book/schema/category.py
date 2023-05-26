@@ -20,3 +20,7 @@ class CategoryIn(Schema):
 class CategoryOut(Schema):
     name: str
     limit: int
+
+
+class CategorySetBook(Schema):
+    books_id: int
