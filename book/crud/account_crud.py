@@ -29,6 +29,7 @@ class AccountCRUD:
     @staticmethod
     def get_by_user_id(user_id):
         account = Account.objects.filter(user_id=user_id).values()
+        return account
 
 
 account_crud = AccountCRUD()
